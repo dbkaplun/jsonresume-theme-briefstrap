@@ -9,6 +9,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4"
+    "bluebird": "^2.9.26",
+    "bootstrap": "^3.3.4",
+    "handlebars": "^2.0.0-alpha.4",
+    "less": "^2.5.1"
   }
 }
