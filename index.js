@@ -4,6 +4,16 @@ var Promise = require('bluebird');
 var path = require('path');
 var fs = Promise.promisifyAll(require('fs'));
 
+Handlebars.registerHelper('labelColor', function () {
+	var channels = [];
+	for (var i = 0; i < 3; i++) channels.push(Math.random()*192|0);
+  return 'rgb('+channels.join(',')+')';
+});
+
+Handlebars.registerHelper('lowercase', function (str) {
+	return str.toLowerCase();
+});
+
 module.exports = {
   paths: {
     hbs: path.join(__dirname, 'resume.hbs'),
