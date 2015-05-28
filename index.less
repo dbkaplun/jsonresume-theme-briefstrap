@@ -9,15 +9,19 @@
 #header {
   padding: 0 (@grid-gutter-width / 2);
 
-  img { margin-top: @line-height-computed * 2; max-width: 100%; }
-}
+  .img-container {
+    text-align: right;
+    img { margin-top: @line-height-computed * 2; max-width: 100%; }
+  }
+  h1 {
+    margin-bottom: 0;
+    .name { white-space: nowrap; display: block; }
+  }
 
-.img-container { text-align: right; }
-@media screen and (max-width: @screen-xs-max) {
-	.img-container, .intro { text-align: center; }
+  @media screen and (max-width: @screen-xs-max) {
+  	.img-container, .intro { text-align: center; }
+  }
 }
-
-#name { white-space: nowrap; display: block; }
 
 #timeline {
   .position {

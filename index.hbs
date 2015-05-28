@@ -18,17 +18,18 @@
     <header id="header" class="jumbotron fadeInDown animated">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4 img-container">
+          <div class="col-sm-4 img-container hidden-print">
             <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}">
           </div>
           <div class="col-sm-8 intro">
             <h1 itemprop="name">
-              {{#if namePrefix}}<small>{{namePrefix}}</small>{{/if}}
-              <strong id="name">{{name}}</strong>
+              {{#if namePrefix}}<small class="hidden-print">{{namePrefix}}</small>{{/if}}
+              <strong class="name">{{name}}</strong>
             </h1>
             <p>
               {{{summary}}}
-              <div class="btn-group hidden-print" role="group" aria-label="...">
+              <br>
+              <span class="btn-group hidden-print" role="group" aria-label="...">
   {{#if email}}
                 <a itemprop="email" href="mailto:{{email}}" title="{{email}}" class="btn btn-social-icon btn-danger" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
                   <span class="fa fa-envelope"></span>
@@ -49,7 +50,7 @@
                   <span class="fa fa-{{lowercase network}}"></span>
                 </a>
   {{/each}}
-              </div>
+              </span>
             </p>
           </div>
         </div>
