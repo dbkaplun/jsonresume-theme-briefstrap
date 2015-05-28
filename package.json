@@ -1,19 +1,23 @@
 {
-  "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.2",
-  "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
+  "name": "jsonresume-theme-briefstrap",
+  "version": "0.0.1",
+  "description": "Briefstrap theme for JSON Resume",
+  "author": "Dan Kaplun <dbkaplun@gmail.com>",
+  "main": "compile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/dbkaplun/jsonresume-theme-briefstrap"
   },
   "license": "MIT",
   "dependencies": {
     "animate.css": "^3.1.1",
     "bluebird": "^2.9.26",
     "bootstrap": "^3.3.4",
+    "bootstrap-social": "^4.8.0",
+    "browserify": "^10.2.1",
     "font-awesome": "^4.3.0",
     "handlebars": "^2.0.0-alpha.4",
+    "jquery": "^2.1.4",
     "less": "^2.5.1"
   }
 }
