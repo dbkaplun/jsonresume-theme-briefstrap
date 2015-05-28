@@ -22,7 +22,7 @@ Handlebars.registerHelper('date', function (val) {
 
 module.exports = {
   paths: {
-    hbs: path.join(__dirname, 'resume.hbs'),
+    hbs: path.join(__dirname, 'index.hbs'),
     less: path.join(__dirname, 'index.less'),
     js: path.join(__dirname, 'index.js')
   },
