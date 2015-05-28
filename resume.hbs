@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 {{#with resume.basics}}
-    <meta name="description" content="{{name}}'s resume" />
+    <meta name="description" content="{{name}}'s resume">
     <meta name="keywords" content="{{name}}"/>
     <title>{{name}} &bull; {{email}} &bull; {{phone}}</title>
 {{/with}}
@@ -19,7 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 img-container">
-            <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}" />
+            <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}">
           </div>
           <div class="col-sm-8 intro">
             <h1 itemprop="name">
@@ -88,7 +88,7 @@
             </div>
           </section>
 {{/each}}
-          <hr />
+          <hr>
 {{#each resume.education}}
           <section itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
             <h3 class="position"><a itemprop="name" href="{{website}}" target="_blank">{{institution}}</a></h3>
@@ -109,7 +109,7 @@
 {{/each}}
         </article>
         <aside id="misc" class="col-md-4 clearfix">
-          <hr class="visible-xs visible-sm" />
+          <hr class="visible-xs visible-sm">
 {{#with resume.skills}}
           <h3>I'm good at</h3>
   {{#if showSkillsTable}}
