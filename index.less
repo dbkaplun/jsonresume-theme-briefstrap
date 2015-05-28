@@ -21,6 +21,9 @@
   @media screen and (max-width: @screen-xs-max) {
     .img-container, .intro { text-align: center; }
   }
+  @media print {
+    margin-bottom: 0;
+  }
 }
 
 #timeline {
@@ -76,4 +79,6 @@
   hr { margin: (@line-height-computed / 2) 0; }
   p { margin-bottom: (@line-height-computed / 4); }
   h1, h2, h3 { margin-top: 0; margin-bottom: 0; }
+  .label { border: 0; padding: 0; }
+  blockquote { border-top: 0; border-right: 0; border-bottom: 0; }
 }
