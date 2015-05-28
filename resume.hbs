@@ -17,42 +17,42 @@
 {{#with resume.basics}}
     <header id="header" class="jumbotron fadeInDown animated">
       <div class="container">
-				<div class="row">
-					<div class="col-sm-4 img-container">
-        		<img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}" />
-					</div>
-					<div class="col-sm-8 intro">
-						<div class="page-header">
-			        <h1 itemprop="name">
-			          {{#if namePrefix}}<small>{{namePrefix}}</small>{{/if}}
-			          <strong id="name">{{name}}</strong>
-							</h1>
-			        <p>{{{summary}}}</p>
-							<div class="btn-group hidden-print" role="group" aria-label="...">
-	{{#if email}}
-			          <a itemprop="email" href="mailto:{{email}}" title="{{email}}" class="btn btn-social-icon btn-danger" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
-			            <span class="fa fa-envelope"></span>
-			          </a>
-	{{/if}}
-	{{#if phone}}
-								<a href="tel:{{phone}}" title="{{phone}}" class="btn btn-social-icon btn-success" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
-			            <span class="fa fa-phone"></span>
-			          </a>
-	{{/if}}
-	{{#unless noPrint}}
-								<button id="print-button" title="Print this page" class="btn btn-social-icon btn-default" data-toggle="tooltip" data-placement="bottom" data-container="body" type="button">
-			            <span class="fa fa-print"></span>
-			          </button>
-	{{/unless}}
-	{{#each profiles}}
-								<a href="{{url}}" title="{{#if username}}{{username}}{{else}}{{network}}{{/if}}" class="btn btn-social-icon btn-{{lowercase network}}" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
-			            <span class="fa fa-{{lowercase network}}"></span>
-			          </a>
-	{{/each}}
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="row">
+          <div class="col-sm-4 img-container">
+            <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}" />
+          </div>
+          <div class="col-sm-8 intro">
+            <div class="page-header">
+              <h1 itemprop="name">
+                {{#if namePrefix}}<small>{{namePrefix}}</small>{{/if}}
+                <strong id="name">{{name}}</strong>
+              </h1>
+              <p>{{{summary}}}</p>
+              <div class="btn-group hidden-print" role="group" aria-label="...">
+  {{#if email}}
+                <a itemprop="email" href="mailto:{{email}}" title="{{email}}" class="btn btn-social-icon btn-danger" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                  <span class="fa fa-envelope"></span>
+                </a>
+  {{/if}}
+  {{#if phone}}
+                <a href="tel:{{phone}}" title="{{phone}}" class="btn btn-social-icon btn-success" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                  <span class="fa fa-phone"></span>
+                </a>
+  {{/if}}
+  {{#unless noPrint}}
+                <button id="print-button" title="Print this page" class="btn btn-social-icon btn-default" data-toggle="tooltip" data-placement="bottom" data-container="body" type="button">
+                  <span class="fa fa-print"></span>
+                </button>
+  {{/unless}}
+  {{#each profiles}}
+                <a href="{{url}}" title="{{#if username}}{{username}}{{else}}{{network}}{{/if}}" class="btn btn-social-icon btn-{{lowercase network}}" target="_blank" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                  <span class="fa fa-{{lowercase network}}"></span>
+                </a>
+  {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 {{/with}}
@@ -65,25 +65,25 @@
           <section itemscope itemtype="http://schema.org/Organization">
             <h3 class="position">
               <span class="title">{{position}}</span>
-							at
-							<a itemprop="name" href="{{website}}" target="_blank">{{company}}</a>
-						</h3>
+              at
+              <a itemprop="name" href="{{website}}" target="_blank">{{company}}</a>
+            </h3>
             <div class="where-when">
-	{{#if address}}
+  {{#if address}}
               <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 {{address}}
               </div>
-	{{/if}}
+  {{/if}}
               <div itemprop="event" itemscope itemtype="http://schema.org/Event">
-                <span itemprop="startDate">{{startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{endDate}}</span>{{/if}}
-							</div>
+                <span itemprop="startDate">{{date startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{date endDate}}</span>{{/if}}
+              </div>
             </div>
             <div class="description">
-              <p>{{summary}}</p>
+              <p>{{{summary}}}</p>
               <ul>
   {{#each highlights}}
                 <li>{{.}}</li>
-	{{/each}}
+  {{/each}}
               </ul>
             </div>
           </section>
@@ -93,17 +93,17 @@
           <section itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
             <h3 class="position"><a itemprop="name" href="{{website}}" target="_blank">{{institution}}</a></h3>
             <div class="where-when">
-	{{#if address}}
+  {{#if address}}
               <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 {{address}}
               </div>
-	{{/if}}
+  {{/if}}
               <div itemprop="event" itemscope itemtype="http://schema.org/Event">
-                <span itemprop="startDate">{{startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{endDate}}</span>{{/if}}
-							</div>
+                <span itemprop="startDate">{{date startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{date endDate}}</span>{{/if}}
+              </div>
             </div>
             <div class="description">
-              <p>{{area}}</p>
+              <p>{{{area}}}</p>
             </div>
           </section>
 {{/each}}
@@ -112,8 +112,10 @@
           <hr class="visible-xs visible-sm" />
 {{#with resume.skills}}
           <h3>I'm good at</h3>
+  {{#if showSkillsTable}}
           <table id="skills" class="table">
-	{{#each .}}
+    {{#each .}}
+      {{#if name}}
             <tr>
               <td class="skill-name">{{name}}</td>
               <td class="skill-progress">
@@ -124,36 +126,34 @@
                 </div>
               </td>
             </tr>
-	{{/each}}
+      {{/if}}
+    {{/each}}
           </table>
-					<ul class="list-inline text-center">
-	{{#each .}}
-		{{#each keywords}}
-						<li><span class="label" style="background:{{randomColor}}">{{.}}</span></li>
-		{{/each}}
-	{{/each}}
-					</ul>
+  {{/if}}
+          <ul class="list-inline text-center">
+  {{#each .}}
+    {{#each keywords}}
+            <li><span class="label" style="background:{{randomColor}}">{{.}}</span></li>
+    {{/each}}
+  {{/each}}
+          </ul>
 {{/with}}
 {{#with resume.languages}}
-          <h3>Languages</h3>
-					<p>
-	{{#each .}}{{#if @index}}, {{/if}}{{language}}{{#if proficiency}} ({{proficiency}}){{/if}}{{/each}}
-					</p>
+          <p>Languages: {{#each .}}{{#if @index}}, {{/if}}{{language}}{{#if fluency}} ({{fluency}}){{/if}}{{/each}}</p>
 {{/with}}
 {{#with resume.references}}
-					<hr>
-	{{#each .}}
-					<blockquote>
-						<p>{{reference}}</p>
-						<footer>{{name}}</footer>
-					</blockquote>
-	{{/each}}
+  {{#each .}}
+          <blockquote>
+            <p>{{reference}}</p>
+            <footer>{{name}}</footer>
+          </blockquote>
+  {{/each}}
 {{/with}}
         </aside>
       </div>
     </div>
-		<script>
+    <script>
 {{{js}}}
-		</script>
+    </script>
   </body>
 </html>
