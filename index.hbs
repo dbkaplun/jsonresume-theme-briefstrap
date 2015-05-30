@@ -41,8 +41,8 @@
               <dd><a href="{{url}}" target="_blank">{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></dd>
   {{/each}}
   {{#unless noPrint}}
-              <dt><span class="fa fa-print"></span></dt>
-              <dd><a id="print-button" href="#">Print this page</a></dd>
+              <dt class="hidden-print"><span class="fa fa-print"></span></dt>
+              <dd class="hidden-print"><a id="print-button" href="#">Print this page</a></dd>
   {{/unless}}
             </dl>
           </div>
