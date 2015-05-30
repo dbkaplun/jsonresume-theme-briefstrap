@@ -6,12 +6,6 @@ var fs = Promise.promisifyAll(require('fs'));
 var browserify = require('browserify');
 var moment = require('moment');
 
-Handlebars.registerHelper('randomColor', function () {
-  var channels = [];
-  for (var i = 0; i < 3; i++) channels.push(Math.random()*192|0);
-  return 'rgb('+channels.join(',')+')';
-});
-
 Handlebars.registerHelper('lowercase', function (str) {
   return str.toLowerCase();
 });
