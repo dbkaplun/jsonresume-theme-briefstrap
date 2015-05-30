@@ -14,32 +14,32 @@
 {{{css}}}
     </style>
   </head>
-  <body>
+  <body itemscope itemtype="http://schema.org/Person">
 {{#with resume.basics}}
     <header id="header" class="jumbotron fadeInDown animated">
       <div class="container">
         <div class="row">
           <div class="col-sm-4 img-container hidden-print">
-            <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}">
+            <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}" itemprop="image">
           </div>
           <div class="col-sm-8 intro">
-            <h1 itemprop="name">
+            <h1>
               {{#if namePrefix}}<small class="hidden-print">{{namePrefix}}</small>{{/if}}
-              <strong class="name">{{name}}</strong>
+              <strong class="name" itemprop="name">{{name}}</strong>
             </h1>
             <p class="hidden-print">{{{summary}}}</p>
             <dl class="contact dl-horizontal">
   {{#if email}}
               <dt><span class="fa fa-envelope"></span></dt>
-              <dd><a itemprop="email" href="mailto:{{email}}" title="{{email}}" target="_blank">{{email}}</a></dd>
+              <dd><a href="mailto:{{email}}" target="_blank" itemprop="email">{{email}}</a></dd>
   {{/if}}
   {{#if phone}}
               <dt><span class="fa fa-phone"></span></dt>
-              <dd><a href="tel:{{cleanedPhone}}" target="_blank">{{phone}}</a></dd>
+              <dd><a href="tel:{{cleanedPhone}}" target="_blank" itemprop="telephone">{{phone}}</a></dd>
   {{/if}}
   {{#each profiles}}
               <dt><span class="fa fa-{{lowercase network}}"></span></dt>
-              <dd><a href="{{url}}" target="_blank">{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></dd>
+              <dd><a href="{{url}}" itemprop="sameAs" target="_blank">{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></dd>
   {{/each}}
   {{#unless noPrint}}
               <dt class="hidden-print"><span class="fa fa-print"></span></dt>
@@ -57,20 +57,18 @@
         <article id="timeline" class="col-md-8">
           <h2 class="sr-only">Timeline</h2>
 {{#each resume.work}}
-          <section itemscope itemtype="http://schema.org/Organization">
+          <section>
             <h3 class="position">
               <span class="title">{{position}}</span>
               at
-              <a itemprop="name" href="{{website}}" target="_blank">{{company}}</a>
+              <a href="{{website}}" target="_blank">{{company}}</a>
             </h3>
             <div class="where-when text-muted">
-  {{#if address}}
-              <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                {{address}}
-              </div>
+  {{#if location}}
+              <div class="location">{{location}}</div>
   {{/if}}
-              <div itemprop="event" itemscope itemtype="http://schema.org/Event">
-                <span itemprop="startDate">{{date startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{date endDate}}</span>{{/if}}
+              <div>
+                <span>{{date startDate}}</span> &ndash; {{#if endDate}}<span>{{date endDate}}</span>{{/if}}
               </div>
             </div>
             <div class="description">
@@ -85,16 +83,14 @@
 {{/each}}
           <hr>
 {{#each resume.education}}
-          <section itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
-            <h3 class="position"><a itemprop="name" href="{{website}}" target="_blank">{{institution}}</a></h3>
+          <section>
+            <h3 class="position"><a href="{{website}}" target="_blank">{{institution}}</a></h3>
             <div class="where-when text-muted">
-  {{#if address}}
-              <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                {{address}}
-              </div>
+  {{#if location}}
+              <div class="location">{{location}}</div>
   {{/if}}
-              <div itemprop="event" itemscope itemtype="http://schema.org/Event">
-                <span itemprop="startDate">{{date startDate}}</span> &ndash; {{#if endDate}}<span itemprop="endDate">{{date endDate}}</span>{{/if}}
+              <div>
+                <span>{{date startDate}}</span> &ndash; {{#if endDate}}<span>{{date endDate}}</span>{{/if}}
               </div>
             </div>
             <div class="description">
