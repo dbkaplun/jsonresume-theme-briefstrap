@@ -63,7 +63,7 @@
               at
               <a itemprop="name" href="{{website}}" target="_blank">{{company}}</a>
             </h3>
-            <div class="where-when">
+            <div class="where-when text-muted">
   {{#if address}}
               <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 {{address}}
@@ -87,7 +87,7 @@
 {{#each resume.education}}
           <section itemprop="alumniOf" itemscope itemtype="http://schema.org/EducationalOrganization">
             <h3 class="position"><a itemprop="name" href="{{website}}" target="_blank">{{institution}}</a></h3>
-            <div class="where-when">
+            <div class="where-when text-muted">
   {{#if address}}
               <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 {{address}}
