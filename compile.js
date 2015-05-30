@@ -34,7 +34,7 @@ module.exports = {
 
       Promise.promisifyAll(browserify({
         entries: paths.js,
-        transform: [['uglifyify', {global: true}]]
+        transform: [[require('uglifyify'), {global: true}]]
       })).bundleAsync(),
 
       // compile styles and resume into template to create HTML
