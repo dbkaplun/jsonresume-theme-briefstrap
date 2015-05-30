@@ -58,7 +58,7 @@
           <h2 class="sr-only">Timeline</h2>
 {{#each resume.work}}
           <section>
-            <h3 class="position">
+            <h3>
               <span class="title">{{position}}</span>
               at
               <a href="{{website}}" target="_blank">{{company}}</a>
@@ -84,7 +84,7 @@
           <hr>
 {{#each resume.education}}
           <section>
-            <h3 class="position"><a href="{{website}}" target="_blank">{{institution}}</a></h3>
+            <h3><a href="{{website}}" target="_blank">{{institution}}</a></h3>
             <div class="where-when text-muted">
   {{#if location}}
               <div class="location">{{location}}</div>

@@ -33,7 +33,7 @@
 }
 
 #timeline {
-  .position {
+  h3 {
     display: inline-block;
 
     > * { font-weight: bold; }
@@ -41,7 +41,7 @@
   .where-when { margin-bottom: (@line-height-computed / 2); }
 
   @media screen and (max-width: @screen-xs-max) {
-    .position { margin-bottom: 0; }
+    h3 { margin-bottom: 0; }
     .where-when > * { display: inline; }
     .location:after { content: '\2022'; }
   }
@@ -49,7 +49,7 @@
     .where-when { margin-top: @line-height-computed; }
   }
   @media print, (min-width: @screen-sm) {
-    .position { float: left; }
+    h3 { float: left; }
     .where-when { float: right; text-align: right; margin-left: (@line-height-computed / 2); }
     .description { clear: left; }
   }
