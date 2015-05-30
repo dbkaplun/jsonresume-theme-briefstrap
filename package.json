@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Briefstrap theme for JSON Resume",
   "author": "Dan Kaplun <dbkaplun@gmail.com>",
-  "main": "compile.js",
+  "main": "build.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/dbkaplun/jsonresume-theme-briefstrap"
