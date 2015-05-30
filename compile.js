@@ -32,12 +32,10 @@ module.exports = {
         .then(function (style) { return less.render(style, {filename: paths.less, compress: true}); })
         .then(function (res) { return res.css; }),
 
-      (function () {
-        var b = Promise.promisifyAll(browserify({
-          entries: paths.js
-        }));
-        return b.bundleAsync();
-      })(),
+      Promise.promisifyAll(browserify({
+        entries: paths.js,
+        transform: [['uglifyify', {global: true}]]
+      })).bundleAsync(),
 
       // compile styles and resume into template to create HTML
       function (render, css, js) {
