@@ -20,8 +20,7 @@ module.exports = {
     less: path.join(__dirname, 'index.less'),
     js: path.join(__dirname, 'index.js')
   },
-  render: Promise.method(function (resume, opts) {
-    opts = opts || {};
+  render: Promise.method(function (resume) {
     var paths = module.exports.paths;
     return Promise.join(
       // compile template
@@ -30,7 +29,13 @@ module.exports = {
 
       // compile styles
       fs.readFileAsync(paths.less, 'utf8')
-        .then(function (style) { return less.render(style, {filename: paths.less, compress: true, rootpath: (opts.less || {}).rootpath}); })
+        .then(function (style) {
+          return less.render(style, {
+            filename: paths.less,
+            compress: true,
+            rootpath: path.relative(process.cwd(), __dirname)
+          });
+        })
         .then(function (res) { return res.css; }),
 
       Promise.promisifyAll(browserify({
