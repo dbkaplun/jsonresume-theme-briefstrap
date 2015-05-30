@@ -107,24 +107,6 @@
           <hr class="visible-xs visible-sm">
 {{#with resume.skills}}
           <h3>I'm good at</h3>
-  {{#if showSkillsTable}}
-          <table id="skills" class="table">
-    {{#each .}}
-      {{#if name}}
-            <tr>
-              <td class="skill-name">{{name}}</td>
-              <td class="skill-progress">
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="{{level}}" aria-valuemin="0" aria-valuemax="100" style="width:{{level}}%">
-                    <span class="sr-only">{{level}}%</span>
-                  </div>
-                </div>
-              </td>
-            </tr>
-      {{/if}}
-    {{/each}}
-          </table>
-  {{/if}}
           <ul class="list-inline">
   {{#each .}}
     {{#each keywords}}

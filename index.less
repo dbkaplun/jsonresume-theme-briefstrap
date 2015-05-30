@@ -63,24 +63,6 @@
   blockquote { text-align: justify; }
 }
 
-#skills {
-  td { border-top: 0; }
-  .skill-name { text-align: right; }
-  .skill-progress {
-    width: 100%;
-
-    .progress { margin-bottom: 0; }
-  }
-
-  @media print {
-    text-align: center; margin-bottom: (@line-height-computed / 2);
-
-    tr, .skill-name { display: inline; }
-    .skill-name { padding: 0; }
-    .skill-progress { display: none; }
-  }
-}
-
 @media print {
   a[href]:after { content: none; }
   hr { margin: (@line-height-computed / 2) 0; }

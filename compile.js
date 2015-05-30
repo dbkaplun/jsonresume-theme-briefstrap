@@ -39,11 +39,9 @@ module.exports = {
 
       // compile styles and resume into template to create HTML
       function (render, css, js) {
-        resume.showSkillsTable = (resume.skills || []).some(function (skill) {
-          return skill.name;
-        });
         var phone = (resume.basics || {}).phone;
         if (phone) resume.basics.cleanedPhone = phone.replace(/[^\d]/g, '');
+
         return render({resume: resume, css: css, js: js});
       });
   })
