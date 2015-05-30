@@ -1,10 +1,11 @@
 @import "node_modules/bootstrap/less/bootstrap.less";
 @import "node_modules/font-awesome/less/font-awesome.less";
-@import "node_modules/bootstrap-social/bootstrap-social.less";
 @import "node_modules/animate.css/animate.css";
 
 @icon-font-path: "node_modules/bootstrap/fonts/";
 @fa-font-path: "node_modules/font-awesome/fonts";
+@dl-horizontal-offset: 60px;
+@dl-horizontal-breakpoint: 0;
 
 #header {
   padding: 0 (@grid-gutter-width / 2);
@@ -16,6 +17,10 @@
   h1 {
     margin-bottom: 0;
     .name { white-space: nowrap; display: block; }
+  }
+  .contact {
+    display: inline-block;
+    dd { text-align: left; }
   }
 
   @media screen and (max-width: @screen-xs-max) {
