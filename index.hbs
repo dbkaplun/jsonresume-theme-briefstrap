@@ -43,6 +43,10 @@
               <dt class="hidden-print"><span class="fa fa-print"></span></dt>
               <dd class="hidden-print"><a id="print-button" href="#">Print this page</a></dd>
   {{/unless}}
+  {{#if pdfUrl}}
+              <dt class="hidden-print"><span class="fa fa-download"></span></dt>
+              <dd class="hidden-print"><a href="{{pdfUrl}}" target="_blank">Download PDF</a></dd>
+  {{/if}}
             </dl>
           </div>
         </div>
