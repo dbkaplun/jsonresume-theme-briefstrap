@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-briefstrap",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Briefstrap theme for JSON Resume",
   "author": "Dan Kaplun <dbkaplun@gmail.com>",
   "main": "build.js",
