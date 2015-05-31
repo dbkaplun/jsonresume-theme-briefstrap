@@ -20,7 +20,7 @@ module.exports = {
     less: path.join(__dirname, 'index.less'),
     js: path.join(__dirname, 'index.js')
   },
-  render: Promise.method(function (resume) {
+  render: Promise.method(function (resume, opts) {
     var paths = module.exports.paths;
     return Promise.join(
       // compile template
@@ -48,7 +48,11 @@ module.exports = {
         var phone = (resume.basics || {}).phone;
         if (phone) resume.basics.cleanedPhone = phone.replace(/[^\d]/g, '');
 
-        return render({resume: resume, css: css, js: js});
+        return render({
+          resume: resume,
+          css: css,
+          js: js + (opts.js || {}).append || ''
+        });
       });
   })
 };
