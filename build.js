@@ -21,6 +21,7 @@ module.exports = {
     js: path.join(__dirname, 'index.js')
   },
   render: Promise.method(function (resume, opts) {
+    opts = opts || {};
     var paths = module.exports.paths;
     return Promise.join(
       // compile template
