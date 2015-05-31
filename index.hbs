@@ -28,23 +28,23 @@
             <p class="hidden-print">{{{summary}}}</p>
             <dl class="contact dl-horizontal">
   {{#if email}}
-              <dt><span class="fa fa-envelope"></span></dt>
+              <dt><i class="fa fa-envelope"></i></dt>
               <dd><a href="mailto:{{email}}" target="_blank" itemprop="email">{{email}}</a></dd>
   {{/if}}
   {{#if phone}}
-              <dt><span class="fa fa-phone"></span></dt>
+              <dt><i class="fa fa-phone"></i></dt>
               <dd><a href="tel:{{cleanedPhone}}" target="_blank" itemprop="telephone">{{phone}}</a></dd>
   {{/if}}
   {{#each profiles}}
-              <dt><span class="fa fa-{{lowercase network}}"></span></dt>
+              <dt><i class="fa fa-{{lowercase network}}"></i></dt>
               <dd><a href="{{url}}" itemprop="sameAs" target="_blank">{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></dd>
   {{/each}}
   {{#unless noPrint}}
-              <dt class="hidden-print"><span class="fa fa-print"></span></dt>
+              <dt class="hidden-print"><i class="fa fa-print"></i></dt>
               <dd class="hidden-print"><a id="print-button" href="#">Print this page</a></dd>
   {{/unless}}
   {{#if pdfUrl}}
-              <dt class="hidden-print"><span class="fa fa-download"></span></dt>
+              <dt class="hidden-print"><i class="fa fa-download"></i></dt>
               <dd class="hidden-print"><a href="{{pdfUrl}}" target="_blank">Download PDF</a></dd>
   {{/if}}
             </dl>
