@@ -31,7 +31,7 @@ module.exports = {
     prerender: identity
   },
   render: Promise.method(function (resume, opts) {
-    opts = _.merge(opts || {}, module.exports.DEFAULT_OPTS);
+    opts = _.merge({}, module.exports.DEFAULT_OPTS, opts);
     return Promise
       .props({
         render: fs.readFileAsync(opts.paths.hbs, 'utf8')
