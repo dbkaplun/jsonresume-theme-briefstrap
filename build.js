@@ -21,7 +21,7 @@ module.exports = {
     paths: {
       hbs: path.resolve(__dirname, 'index.hbs'),
       less: path.resolve(__dirname, 'index.less'),
-      js: path.resolve(__dirname, 'index.js')
+      js: [path.resolve(__dirname, 'index.js')]
     },
     hbs: {},
     less: {append: ''},
