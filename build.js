@@ -5,7 +5,7 @@ var path = require('path');
 var fs = Promise.promisifyAll(require('fs'));
 var browserify = require('browserify');
 var moment = require('moment');
-var extend = require('util')._extend;
+var _ = require('lodash');
 
 Handlebars.registerHelper('lowercase', function (str) {
   return str.toLowerCase();
@@ -21,9 +21,9 @@ module.exports = {
   __dirname: __dirname,
   DEFAULT_OPTS: {
     paths: {
-      hbs: 'index.hbs',
-      less: 'index.less',
-      js: 'index.js'
+      hbs: path.resolve(__dirname, 'index.hbs'),
+      less: path.resolve(__dirname, 'index.less'),
+      js: path.resolve(__dirname, 'index.js')
     },
     hbs: {},
     less: {append: ''},
@@ -31,7 +31,7 @@ module.exports = {
     prerender: identity
   },
   render: Promise.method(function (resume, opts) {
-    opts = extend(opts || {}, module.exports.DEFAULT_OPTS);
+    opts = _.merge(opts || {}, module.exports.DEFAULT_OPTS);
     return Promise
       .props({
         render: fs.readFileAsync(opts.paths.hbs, 'utf8')
@@ -39,7 +39,7 @@ module.exports = {
 
         css: fs.readFileAsync(opts.paths.less, 'utf8')
           .then(function (less) {
-            return lessc.render(less + opts.less.append, extend({
+            return lessc.render(less + opts.less.append, _.merge({
               filename: opts.paths.less,
               compress: true,
               rootpath: path.relative(process.cwd(), __dirname)
@@ -47,7 +47,7 @@ module.exports = {
           })
           .get('css'),
 
-        js: Promise.promisifyAll(browserify(extend({
+        js: Promise.promisifyAll(browserify(_.merge({
           entries: opts.paths.js,
           transform: [[require('uglifyify'), {global: true}]]
         }, opts.js.opts))).bundleAsync()
