@@ -1,10 +1,11 @@
 var Handlebars = require('handlebars');
-var less = require('less');
+var lessc = require('less');
 var Promise = require('bluebird');
 var path = require('path');
 var fs = Promise.promisifyAll(require('fs'));
 var browserify = require('browserify');
 var moment = require('moment');
+var extend = require('util')._extend;
 
 Handlebars.registerHelper('lowercase', function (str) {
   return str.toLowerCase();
@@ -14,45 +15,52 @@ Handlebars.registerHelper('date', function (val) {
   return moment(val).format('MMM GGGG');
 });
 
+function identity (val) { return val; }
+
 module.exports = {
-  paths: {
-    hbs: path.join(__dirname, 'index.hbs'),
-    less: path.join(__dirname, 'index.less'),
-    js: path.join(__dirname, 'index.js')
+  __dirname: __dirname,
+  DEFAULT_OPTS: {
+    paths: {
+      hbs: 'index.hbs',
+      less: 'index.less',
+      js: 'index.js'
+    },
+    hbs: {},
+    less: {append: ''},
+    js: {append: ''},
+    prerender: identity
   },
   render: Promise.method(function (resume, opts) {
-    opts = opts || {};
-    var paths = module.exports.paths;
-    return Promise.join(
-      // compile template
-      fs.readFileAsync(paths.hbs, 'utf8')
-        .then(Handlebars.compile),
+    opts = extend(opts || {}, module.exports.DEFAULT_OPTS);
+    return Promise
+      .props({
+        render: fs.readFileAsync(opts.paths.hbs, 'utf8')
+          .then(function (hbs) { return Handlebars.compile(hbs, opts.hbs.opts); }),
 
-      // compile styles
-      fs.readFileAsync(paths.less, 'utf8')
-        .then(function (style) {
-          return less.render(style, {
-            filename: paths.less,
-            compress: true,
-            rootpath: path.relative(process.cwd(), __dirname)
-          });
-        })
-        .then(function (res) { return res.css; }),
+        css: fs.readFileAsync(opts.paths.less, 'utf8')
+          .then(function (less) {
+            return lessc.render(less + opts.less.append, extend({
+              filename: opts.paths.less,
+              compress: true,
+              rootpath: path.relative(process.cwd(), __dirname)
+            }, opts.less.opts));
+          })
+          .get('css'),
 
-      Promise.promisifyAll(browserify({
-        entries: paths.js,
-        transform: [[require('uglifyify'), {global: true}]]
-      })).bundleAsync(),
-
-      // compile styles and resume into template to create HTML
-      function (render, css, js) {
+        js: Promise.promisifyAll(browserify(extend({
+          entries: opts.paths.js,
+          transform: [[require('uglifyify'), {global: true}]]
+        }, opts.js.opts))).bundleAsync()
+      })
+      .then(opts.prerender)
+      .then(function (result) {
         var phone = (resume.basics || {}).phone;
         if (phone) resume.basics.cleanedPhone = phone.replace(/[^\d]/g, '');
 
-        return render({
+        return result.render({
           resume: resume,
-          css: css,
-          js: js + (opts.js || {}).append || ''
+          css: result.css,
+          js: result.js
         });
       });
   })
