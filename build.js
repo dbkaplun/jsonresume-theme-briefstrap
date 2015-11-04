@@ -15,8 +15,6 @@ Handlebars.registerHelper('date', function (val) {
   return moment(val).format('MMM GGGG');
 });
 
-function identity (val) { return val; }
-
 module.exports = {
   __dirname: __dirname,
   DEFAULT_OPTS: {
@@ -27,8 +25,7 @@ module.exports = {
     },
     hbs: {},
     less: {append: ''},
-    js: {append: ''},
-    prerender: identity
+    js: {}
   },
   render: Promise.method(function (resume, opts) {
     opts = _.merge({}, module.exports.DEFAULT_OPTS, opts);
