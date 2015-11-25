@@ -28,7 +28,7 @@
             <p class="hidden-print">{{{summary}}}</p>
             <dl class="contact dl-horizontal">
   {{#if email}}
-              <dt><i class="fa fa-envelope"></i></dt>
+              <dt><i class="fa fa-envelope-o"></i></dt>
               <dd><a href="mailto:{{email}}" target="_blank" itemprop="email">{{email}}</a></dd>
   {{/if}}
   {{#if phone}}
@@ -44,7 +44,7 @@
               <dd class="hidden-print"><a id="print-button" href="#">Print this page</a></dd>
   {{/unless}}
   {{#if pdfUrl}}
-              <dt class="hidden-print"><i class="fa fa-download"></i></dt>
+              <dt class="hidden-print"><i class="fa fa-file-text-o"></i></dt>
               <dd class="hidden-print"><a href="{{pdfUrl}}" target="_blank">Download PDF</a></dd>
   {{/if}}
             </dl>
