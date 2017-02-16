@@ -31,14 +31,14 @@
               <dt><i class="fa fa-envelope-o"></i></dt>
               <dd><a href="mailto:{{email}}" target="_blank" itemprop="email">{{email}}</a></dd>
   {{/if}}
-  {{#if phone}}
-              <dt><i class="fa fa-phone"></i></dt>
-              <dd><a href="tel:{{cleanedPhone}}" target="_blank" itemprop="telephone">{{phone}}</a></dd>
-  {{/if}}
   {{#each profiles}}
               <dt><i class="fa fa-{{lowercase network}}"></i></dt>
               <dd><a href="{{url}}" itemprop="sameAs" target="_blank">{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></dd>
   {{/each}}
+  {{#if phone}}
+              <dt><i class="fa fa-phone"></i></dt>
+              <dd><a href="tel:{{cleanedPhone}}" target="_blank" itemprop="telephone">{{phone}}</a></dd>
+  {{/if}}
   {{#unless noPrint}}
               <dt class="hidden-print"><i class="fa fa-print"></i></dt>
               <dd class="hidden-print"><a id="print-button" href="#">Print this page</a></dd>
