@@ -17,10 +17,10 @@
     <header id="header" class="jumbotron fadeInDown animated">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4 img-container hidden-print">
+          <div class="col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2 img-container hidden-print">
             <img alt="{{pictureAlt}}" src="{{#if picture}}{{picture}}{{else}}{{gravatar}}{{/if}}" itemprop="image">
           </div>
-          <div class="col-sm-8 intro">
+          <div class="col-sm-8 col-xs-12 intro">
             <h1>
               {{#if namePrefix}}<small class="hidden-print">{{namePrefix}}</small>{{/if}}
               <strong class="name" itemprop="name">{{name}}</strong>
