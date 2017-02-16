@@ -86,7 +86,13 @@
           <hr>
 {{#each resume.education}}
           <section>
-            <h3><a href="{{website}}" target="_blank">{{institution}}</a></h3>
+            <h3>
+  {{#if website}}
+              <a href="{{website}}" target="_blank">{{institution}}</a>
+  {{else}}
+              <span>{{institution}}</span>
+  {{/if}}
+            </h3>
             <div class="where-when text-muted">
   {{#if location}}
               <div class="location">{{location}}</div>
